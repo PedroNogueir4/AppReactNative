@@ -22,7 +22,8 @@
         "text": {
             "sizes": {
                 "small": "13px",
-                "normal": "17px"
+                "normal": "17px",
+                "big": "25px"
             }
         }
     }
