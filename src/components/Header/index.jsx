@@ -1,16 +1,12 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { colors } from '../../styles/theme.json';
-import {
-  Box,
-  Text,
-  Title,
-  StyledSafeAreaView,
-  Touchable,
-  Button,
-} from '../../components';
+import { Box, Title, StyledSafeAreaView, Touchable } from '../../components';
+import { useNavigation } from '@react-navigation/native';
 
 const Header = ({ title }) => {
+  const navigation = useNavigation();
+
   return (
     <Box
       fluid
@@ -23,7 +19,7 @@ const Header = ({ title }) => {
           width="80px"
           justify="center"
           align="center"
-          onPress={() => alert('teste')}
+          onPress={() => navigation.openDrawer()}
         >
           <Icon name="menu" size={30} />
         </Touchable>

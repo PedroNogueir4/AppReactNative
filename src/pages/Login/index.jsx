@@ -2,7 +2,7 @@ import React from 'react';
 import { Title, Text, Button, Box, Spacer, Input } from '../../components';
 import { StatusBar } from 'react-native';
 
-const Login = () => {
+const Login = ({ navigation: { navigate, replace } }) => {
   return (
     <>
       <StatusBar barStyle={'dark-content'} />
@@ -26,10 +26,14 @@ const Login = () => {
         <Input placeholder="Password" secureTextEntry={true} />
         <Spacer size="50px" />
         <Button block>
-          <Text color="light">SigIn into my account</Text>
+          <Text color="light" onPress={() => navigate('Feed')}>SigIn into my account</Text>
         </Button>
         <Spacer size="20px" />
-        <Text underline color="dark" onPress={() => alert('Cadastro')}>
+        <Text
+          underline
+          color="dark"
+          onPress={() => replace('Register')}
+        >
           Create new account
         </Text>
       </Box>

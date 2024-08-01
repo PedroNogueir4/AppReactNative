@@ -49,10 +49,10 @@ const Post = () => {
                     </Text>
                 </Box>
                 <Box row justify="flex-end">
-                    <Touchable width="30px" align="flex-end" spacing="0px 15px 0px 0px">
+                    <Touchable width="30px" align="flex-end" spacing="0px 10px 0px 0px">
                         <Icon name="heart" color={colors.danger} size={20} />
                     </Touchable>
-                    <Touchable width="30px" align="flex-end" spacing="0px 15px 0px 0px">
+                    <Touchable width="30px" align="flex-end" spacing="0px 10px 0px 0px">
                         <Icon name="bubble" size={20} />
                     </Touchable>
                     <Touchable width="30px" align="flex-end">

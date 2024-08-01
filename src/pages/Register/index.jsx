@@ -1,9 +1,11 @@
 import React from 'react';
-
+import { useNavigation } from '@react-navigation/native';
 import { Title, Text, Button, Box, Spacer, Input } from '../../components';
 import { StatusBar } from 'react-native';
 
 const Register = () => {
+  const { navigate, goBack } = useNavigation();
+
   return (
     <>
       <StatusBar barStyle={'dark-content'} />
@@ -30,8 +32,8 @@ const Register = () => {
           <Text color="light">Create my account</Text>
         </Button>
         <Spacer size="20px" />
-        <Text underline color="dark" onPress={() => alert('Cadastro')}>
-          Back to signIn
+        <Text underline color="dark" onPress={() => goBack()}>
+          Back to Home
         </Text>
       </Box>
     </>

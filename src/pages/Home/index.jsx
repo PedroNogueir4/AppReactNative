@@ -1,9 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
-
 import { Title, Text, Button, Box, Spacer } from '../../components';
 
-const Home = () => {
+const Home = ({ navigation: { navigate } }) => {
   return (
     <Box justify="center" align="center" background="dark" hasPadding>
       <Box justify="center" align="center" fluid>
@@ -16,10 +14,18 @@ const Home = () => {
       </Box>
       <Box fluid justify="flex-end" align="center">
         <Button block>
-          <Text color="light">SigIn my account</Text>
+          <Text color="light" onPress={() => navigate('Login')}>
+            SigIn my account
+          </Text>
         </Button>
         <Spacer size="22px" />
-        <Text underline color='light' onPress={()=> alert('Cadastro')}>Create new account</Text>
+        <Text
+          underline
+          color="light"
+          onPress={() => navigate('Register')}
+        >
+          Create new account
+        </Text>
         <Spacer size="70px" />
       </Box>
     </Box>
