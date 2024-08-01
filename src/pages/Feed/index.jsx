@@ -8,7 +8,7 @@ import PostList from '../../components/Post/list';
 const Feed = () => {
   return (
     <Box>
-      <Header title={'Explore'} />
+      <Header />
       <ScrollView>
         <StoryList />
         <Spacer />

@@ -1,34 +1,49 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { colors } from '../../styles/theme.json';
-import { Box, Title, StyledSafeAreaView, Touchable } from '../../components';
+
+import { Box, Title, Touchable } from '../../components';
+import { SafeAreaView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Header = ({ title }) => {
+import { colors } from '../../styles/theme.json';
+import utils from '../../utils/hexaDecimalTranparent';
+
+const Header = ({ title = 'Explore', right = null }) => {
   const navigation = useNavigation();
 
   return (
-    <Box
-      fluid
-      height="65px"
-      justify="center"
-      border={`1px solid ${colors.muted}50`}
+    <View
+      style={{
+        minHeight: "6%",
+        justifyContent: 'center',
+        borderBottomWidth: 1,
+        borderBottomStyle: 'solid',
+        borderBottomColor: utils.toAlpha(colors.muted, 50),
+      }}
     >
-      <StyledSafeAreaView>
+      <SafeAreaView
+        style={{
+          flexDirection: 'row',
+          width: '100%',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <Touchable
           width="80px"
           justify="center"
           align="center"
+          hasPadding
           onPress={() => navigation.openDrawer()}
         >
           <Icon name="menu" size={30} />
         </Touchable>
         <Box align="center" justify="center">
-          <Title>{title}</Title>
+          <Title variant='small2'>{title}</Title>
         </Box>
-        <Touchable width="80px"></Touchable>
-      </StyledSafeAreaView>
-    </Box>
+        {right ? right() : <Touchable hasPadding width="80px"></Touchable>}
+      </SafeAreaView>
+    </View>
   );
 };
 

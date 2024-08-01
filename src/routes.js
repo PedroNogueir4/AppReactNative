@@ -8,14 +8,16 @@ import {
     DrawerItemList,
 } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import transparent from './utils/hexaDecimalTranparent';
+import { Title } from './components';
 import { colors } from './styles/theme.json';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import Feed from './pages/Feed';
-import { Title } from './components';
+import Marketplace from './pages/Marketplace';
+import Product from './pages/Marketplace/product';
+import Category from './pages/Marketplace/category';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -37,7 +39,7 @@ const DrawerComponent = () => {
             initialRouteName="Feed"
             drawerContent={(props) => <CustomDrawerComponent {...props} />}
             screenOptions={{
-                drawerActiveBackgroundColor: transparent.toAlpha(colors.primary, 50),
+                drawerActiveBackgroundColor: colors.primary,
                 drawerActiveTintColor: colors.light,
                 drawerInactiveTintColor: colors.light,
                 drawerStyle: {
@@ -57,7 +59,7 @@ const DrawerComponent = () => {
             />
             <Drawer.Screen
                 name="MarketPlace"
-                component={Feed}
+                component={Marketplace}
                 options={{
                     drawerIcon: ({ color }) => (
                         <Icon name="tag" color={color} size={17} />
@@ -107,6 +109,20 @@ const Routes = () => {
                 <Stack.Screen
                     name="Feed"
                     component={DrawerComponent}
+                    options={{
+                        headerShown: false,
+                    }}
+                />
+                <Stack.Screen
+                    name="Category"
+                    component={Category}
+                    options={{
+                        headerShown: false,
+                    }}
+                />
+                <Stack.Screen
+                    name="Product"
+                    component={Product}
                     options={{
                         headerShown: false,
                     }}

@@ -14,6 +14,7 @@
         "title": {
             "sizes": {
                 "small": "22px",
+                "small2": "25px",
                 "normal": "30px",
                 "big": "40px"
             },
