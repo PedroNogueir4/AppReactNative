@@ -1,10 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import { Box, Title, Touchable } from '../../components';
 import { SafeAreaView, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { colors } from '../../styles/theme.json';
 import utils from '../../utils/hexaDecimalTranparent';
 
@@ -14,7 +12,7 @@ const Header = ({ title = 'Explore', right = null }) => {
   return (
     <View
       style={{
-        minHeight: "6%",
+        minHeight: '6%',
         justifyContent: 'center',
         borderBottomWidth: 1,
         borderBottomStyle: 'solid',
@@ -34,12 +32,12 @@ const Header = ({ title = 'Explore', right = null }) => {
           justify="center"
           align="center"
           hasPadding
-          onPress={() => navigation.openDrawer()}
+          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         >
           <Icon name="menu" size={30} />
         </Touchable>
         <Box align="center" justify="center">
-          <Title variant='small2'>{title}</Title>
+          <Title variant="small2">{title}</Title>
         </Box>
         {right ? right() : <Touchable hasPadding width="80px"></Touchable>}
       </SafeAreaView>

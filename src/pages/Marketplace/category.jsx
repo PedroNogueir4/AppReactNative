@@ -14,6 +14,9 @@ const Category = () => {
                     </Touchable>
                 )}
             />
+            <Box>
+                <Text>Conteúdo da Categoria</Text>
+            </Box>
         </>
     );
 };
